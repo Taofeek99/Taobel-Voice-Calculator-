@@ -1,1 +1,48 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Taobel Voice Calculator</title></head><body><h1>Taobel Voice Calculator</h1><p>Full code will go here.</p></body></html>
+<body>
+  <div class="container">
+    <h1>Taobel Voice Calculator</h1>
+    <div id="display" class="display"></div>
+
+    <div class="buttons">
+      <button>(</button>
+      <button>)</button>
+      <button>%</button>
+      <button>/</button>
+
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>*</button>
+
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>-</button>
+
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>+</button>
+
+      <button>0</button>
+      <button>.</button>
+      <button id="clear">C</button>
+      <button id="equals">=</button>
+    </div>
+
+    <button id="speak" class="speak">🎤 Speak</button>
+    <div id="history" class="history"></div>
+  </div>
+
+  <script>
+    const display = document.getElementById("display");
+    const history = document.getElementById("history");
+    const buttons = document.querySelectorAll(".buttons button");
+    const speakBtn = document.getElementById("speak");
+
+    let expr = "";
+    let calcHistory = [];
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const val = btn
